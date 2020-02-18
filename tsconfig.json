@@ -7,9 +7,14 @@
         "target": "es6",
         "jsx": "react",
         "types": [
+<<<<<<< HEAD
             "react",
             "jest"
         ],
+=======
+            "react"
+        ]
+>>>>>>> 4853b07d27ac203e580aa278c11b4fbad882e905
     },
     "include": [
         "./src/**/*"
