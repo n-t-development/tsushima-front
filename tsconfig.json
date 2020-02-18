@@ -7,8 +7,9 @@
         "target": "es6",
         "jsx": "react",
         "types": [
-            "react"
-        ]
+            "react",
+            "jest"
+        ],
     },
     "include": [
         "./src/**/*"
