@@ -20,7 +20,12 @@ module.exports = {
                         presets: ['@babel/preset-env', '@babel/preset-react']
                     }
                 }]
-            }
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+                loader: 'file-loader?name=assets/[name].[hash].[ext]',
+            },
+
         ]
     },
     resolve: {
@@ -32,7 +37,6 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/',
         filename: 'bundle.js'
     },
     devtool: "source-map",
