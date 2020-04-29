@@ -7,25 +7,22 @@ module.exports = {
             {
                 test: /\.tsx$/,
                 use: [{
-                    loader: 'awesome-typescript-loader'
-                }]
-            },
-            {
-                test: /\.(js)$/,
-                exclude: /node_modules/,
-                use: [{
-                    loader: 'source-map-loader',
-                    options: {
-                        enforce: 'pre',
-                        presets: ['@babel/preset-env', '@babel/preset-react']
-                    }
+                    loader: 'ts-loader'
                 }]
             },
             {
                 test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
                 loader: 'file-loader?name=assets/[name].[hash].[ext]',
             },
-
+            {
+                test: /\.css$/,
+                use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
+            },
+            {
+                exclude: [/node_modules\/(?!(swiper|dom7)\/).*/, /\.test\.js(x)?$/],
+                test: /\.js(x)?$/,
+                use: [{ loader: 'babel-loader' }],
+            }
         ]
     },
     resolve: {
