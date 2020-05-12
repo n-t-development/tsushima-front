@@ -5,34 +5,29 @@ import 'react-id-swiper/lib/styles/css/swiper.css';
 
 
 export const HeaderImageSlider = () => {
-    const [swiper, setSwiper] = React.useState(null);
 
-    const goNext = () => {
-        if (swiper !== null) {
-            swiper.slideNext();
-        }
-    };
+    const params = {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
+        },
+    }
 
-    const goPrev = () => {
-        if (swiper !== null) {
-            swiper.slidePrev();
-        }
-    };
+    console.log("slider")
     return (
-        <div >
+        <Root >
             <SwiperWrapper>
-                <Swiper getSwiper={setSwiper}>
-                    <Img src={'./../img/IMG_0598.jpeg'}></Img>
-                    <Img src={'./../img/IMG_0600.jpeg'}></Img>
-                    <Img src={'./../img/IMG_0601.jpeg'}></Img>
-                    <Img src={'./../img/IMG_0602.jpeg'}></Img>
-                    <Img src={'./../img/IMG_0604.jpeg'}></Img>
+                <Swiper {...params}>
+                    <Img src={'./../img/IMG_0575.JPG'}></Img>
+                    <Img src={'./../img/IMG_0571.JPG'}></Img>
+                    <Img src={'./../img/IMG_0572.JPG'}></Img>
+                    <Img src={'./../img/IMG_0573.JPG'}></Img>
+                    <Img src={'./../img/IMG_0574.JPG'}></Img>
                 </Swiper>
-                <button onClick={goPrev}>Prev</button>
-                <button onClick={goNext}>Next</button>
             </SwiperWrapper>
-        </div>
+        </Root>
     )
 }
 
-HeaderImageSlider.displayName = 'Memo(HeaderImageSlider)';

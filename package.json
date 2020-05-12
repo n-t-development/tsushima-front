@@ -47,6 +47,7 @@
     "react-spring": "^8.0.27",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.0",
-    "styled-components": "^5.0.1"
+    "styled-components": "^5.0.1",
+    "styled-media-query": "^2.1.2"
   }
 }

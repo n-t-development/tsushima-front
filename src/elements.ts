@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import media from "./designsystem/media";
 
 export const Root = styled.div`
   width: 100vw;
@@ -8,6 +9,9 @@ export const Root = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column; 
+  ${media.pc`
+  
+  `}
 `;
 
 export const Wrap = styled.div`

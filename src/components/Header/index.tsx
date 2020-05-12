@@ -1,58 +1,44 @@
 import * as React from "react";
-import { Root, HeaderField, LinkBox, StyleLink, MenuField } from "./elements";
+import { Root, LinkBox, StyleLink, LinkItem, TopImageBox, Img, Text } from "./elements";
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    Link
 } from 'react-router-dom';
-import { useRef, useState } from "react";
-import { useTransition, animated } from 'react-spring';
+import { Access } from "../Access";
+import { Board } from "../Board";
+import { Spot } from "../Spot";
+import { Top } from "../Top";
 
-const menuItems =
-    [
-        { 'name': 'Home', 'path': '/' },
-        { 'name': 'Spot', 'path': '/spot' },
-        { 'name': 'Access', 'path': '/access' },
-    ]
 
 export const Header: React.FC = () => {
-    const [iOpen, setIsOpen] = useState(false);
-
-    const handleBtnClick = () => setIsOpen(!iOpen);
-
-    const transitions = useTransition(iOpen, null, {
-        from: { opacity: 0, transform: 'translateY(-10%)' },
-        enter: { opacity: 1, transform: 'translateY(0%)' },
-        leave: { opacity: 0, transform: 'translateY(10%)' },
-    });
 
 
     return (
         <Root >
-            <HeaderField>
-                <button onClick={handleBtnClick}>Menu</button>
-            </HeaderField>
-            {transitions.map(({ item, key, props }) => {
-                return (
-                    item && (
-                        <MenuField>
-                            <animated.div
-                                style={{
-                                    ...props, position: 'relative', height: '100%',
-                                }}
-                                className="menu"
-                                key={key}
-                            >
-                                {menuItems.map(menuItem => (
-                                    <LinkBox>
-                                        <StyleLink to={menuItem.path}>{menuItem.name}</StyleLink>
-                                    </LinkBox>
-                                ))}
-                            </animated.div>
-                        </MenuField>
-                    )
-                );
-            })}
+            <TopImageBox>
+                <Text>（仮）対馬オリジナルサイト</Text>
+            </TopImageBox>
+            <LinkBox >
+                <LinkItem>
+                    <StyleLink to={'/'}>{'Top'}</StyleLink>
+                </LinkItem>
+                <LinkItem>
+                    <StyleLink to={'/spot'}>{'Spot'}</StyleLink>
+                </LinkItem>
+                <LinkItem>
+                    <StyleLink to={'/board'}>{'Board'}</StyleLink>
+                </LinkItem>
+                <LinkItem>
+                    <StyleLink to={'/access'}>{'Access'}</StyleLink>
+                </LinkItem>
+            </LinkBox>
+            <Route exact path='/' component={Top} />
+            <Route exact path="/board" component={Board} />
+            <Route exact path="/spot" component={Spot} />
+            <Route exact path="/access" component={Access} />
         </Root >
     )
 }
+Header.displayName = 'Memo(Header)';

@@ -1,14 +1,7 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom'
 export const Root = styled.div`
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1001;
-    margin: 20px;
-`;
-export const HeaderField = styled.div`
-    
+  height: 300px;
 `;
 export const HeaderBox = styled.nav`
     display: flex;
@@ -20,23 +13,51 @@ export const HeaderBox = styled.nav`
 
 
 export const LinkBox = styled.div`
-    text-align: center;
-    width: 100px;
-    line-height: 1.5em;
-    margin: 20px;
-    padding: 0;
-    box-sizing: border-box;
-    letter-spacing: .03em;
-    margin-top: 0;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0;
+  justify-content: center;
+`;
+export const LinkItem = styled.div`
+  list-style: none;
+  display: flex;
+  width: 100%;
+  height: 50px;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  align-items: center;
+  border: 1px solid;
+  // border-color: #fff;
+  // background-color: #00bfff;
 `;
 export const StyleLink = styled(Link)`
+  display: block;
+  margin: 0 auto;
     color: black;
-    font-size: 16px;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
 `;
 
-export const MenuField = styled.div`
-  width: 100vw;
-  height: auto;
-  min-height: 100vh;
-  background: white;
+export const TopImageBox = styled.div`
+    height: 200px;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+`;
+
+export const Img = styled.img`
+    width: 300px;
+    height: 300px;
+`;
+export const Text = styled.span`
+    display: block;
+    font-size: 20px;
 `;
